@@ -27,8 +27,8 @@ const NavItem = ({ item, level }) => {
   ) : (
     <FiberManualRecordIcon
       sx={{
-        width: customization.isOpen.findIndex((id) => id === item?.id) > -1 ? 8 : 6,
-        height: customization.isOpen.findIndex((id) => id === item?.id) > -1 ? 8 : 6
+        // width: customization.isOpen.findIndex((id) => id === item?.id) > -1 ? 8 : 6,
+        // height: customization.isOpen.findIndex((id) => id === item?.id) > -1 ? 8 : 6
       }}
       fontSize={level > 0 ? 'inherit' : 'medium'}
     />
