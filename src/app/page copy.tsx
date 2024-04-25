@@ -1,6 +1,17 @@
 import Image from "next/image";
+import Link from '@mui/material/Link';
+import Box from '@mui/material/Box';
+import Button from "@mui/material/Button";
 
 export default function Home() {
+  return <>
+    <div>123</div>
+    <Box sx={{ typography: 'body1' }}>
+      <Link href="/">Link</Link></Box>
+    <Button href="/" variant="contained">
+      Link
+    </Button>
+  </>
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
