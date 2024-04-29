@@ -8,7 +8,7 @@ import { Divider, Grid, Stack, Typography, useMediaQuery } from '@mui/material';
 import AuthWrapper from './AuthWrapper';
 import AuthCardWrapper from './AuthCardWrapper';
 import AuthLogin from './AuthLogin';
-import Logo from '@/ui-component/Logo';
+import Logo from '@/ui-component/Logo2';
 import AuthFooter from '@/ui-component/cards/AuthFooter';
 
 // assets

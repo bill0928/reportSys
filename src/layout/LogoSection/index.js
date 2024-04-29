@@ -6,13 +6,14 @@ import { ButtonBase, Link } from '@mui/material';
 
 // project imports
 import {config} from '../constant';
-import Logo from '@/ui-component/Logo';
+import Logo from '@/ui-component/Logo2';
 import app from '@/state/app/store'
 // ==============================|| MAIN LOGO ||============================== //
 
 const LogoSection = () => {
   const {actions, state} = app
   const {defaultId} = useSnapshot(state)
+  
   return (
     <ButtonBase disableRipple 
       onClick={() => actions.setMenuOpen(defaultId)} 
