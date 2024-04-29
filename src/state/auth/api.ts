@@ -5,22 +5,22 @@ import { errCodes } from '@/state/constant'
 
 const [, NeedVerified] = errCodes
 export const loginHandel = async (data: Auth) => {
-  try {
-    const response = await api.post("/login", data);
-    if ("error" in response) return {error: true}
-    const auth: UserInfo = response.data
-    if(['none', 'verified'].includes(auth.twofa || '') ){
-      /** 不需要twa直接登入 */
-      credentialCookie.set(auth)
-    }else if(auth.twofa === 'challenging'){
-      /** twa 验证未完成 */
-      credentialCookie.set(NeedVerified)
-    }
-    return auth
-  } catch (error) {
-    console.error(error)
-    return { error: true }
-  }
+  // try {
+  //   const response = await api.post("/login", data);
+  //   if ("error" in response) return {error: true}
+  //   const auth: UserInfo = response.data
+  //   if(['none', 'verified'].includes(auth.twofa || '') ){
+  //     /** 不需要twa直接登入 */
+  //     credentialCookie.set(auth)
+  //   }else if(auth.twofa === 'challenging'){
+  //     /** twa 验证未完成 */
+  //     credentialCookie.set(NeedVerified)
+  //   }
+  //   return auth
+  // } catch (error) {
+  //   console.error(error)
+  //   return { error: true }
+  // }
 }
 /** 登出后清空 cookie */
 export const logoutHandel = async () => {

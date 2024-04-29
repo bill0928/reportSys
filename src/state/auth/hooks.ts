@@ -17,12 +17,12 @@ export const useAuth = () => {
   const login = useCallback(
     async (authData: Auth) => {
       const res = await loginHandel(authData);
-      if ("error" in res) return res;
-      setAuthState({
-        credential: res,
-        tokenLoading: false,
-      });
-      return res;
+      // if ("error" in res) return res;
+      // setAuthState({
+      //   credential: res,
+      //   tokenLoading: false,
+      // });
+      // return res;
     },
     [setAuthState]
   );
