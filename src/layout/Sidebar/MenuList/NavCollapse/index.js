@@ -1,6 +1,5 @@
 // import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
-// import { useSelector } from 'react-redux';
 // import { useLocation, useNavigate } from 'react-router';
 import { usePathname, useRouter } from 'next/navigation'
 // material-ui
@@ -13,14 +12,14 @@ import NavItem from '../NavItem';
 // assets
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 import { IconChevronDown, IconChevronUp } from '@tabler/icons-react';
+import {config} from '../../../constant';
 
 // ==============================|| SIDEBAR MENU LIST COLLAPSE ITEMS ||============================== //
 
 const NavCollapse = ({ menu, level }) => {
   const theme = useTheme();
-  // const customization = useSelector((state) => state.customization);
   // const navigate = useNavigate();
-
+  const {borderRadius} = config
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState(null);
 
@@ -32,7 +31,6 @@ const NavCollapse = ({ menu, level }) => {
     }
   };
   const pathname = usePathname()
-  // const { pathname } = useLocation();
   const checkOpenForParent = (child, id) => {
     child.forEach((item) => {
       if (item.url === pathname) {
@@ -94,7 +92,7 @@ const NavCollapse = ({ menu, level }) => {
     <>
       <ListItemButton
         sx={{
-          // borderRadius: `${customization.borderRadius}px`,
+          borderRadius: `${borderRadius}px`,
           mb: 0.5,
           alignItems: 'flex-start',
           backgroundColor: level > 1 ? 'transparent !important' : 'inherit',

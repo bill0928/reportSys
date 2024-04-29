@@ -1,7 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 
 // import { useNavigate } from 'react-router-dom';
-// import { useSelector } from 'react-redux';
 
 // material-ui
 import { useTheme } from '@mui/material/styles';
@@ -26,6 +25,7 @@ import {
   Switch,
   Typography
 } from '@mui/material';
+import app from '@/state/app/store'
 
 // third-party
 import PerfectScrollbar from 'react-perfect-scrollbar';
@@ -40,23 +40,26 @@ import User1 from '@/assets/images/users/user-round.svg';
 import { IconLogout, IconSearch, IconSettings, IconUser } from '@tabler/icons-react';
 
 // ==============================|| PROFILE MENU ||============================== //
+import {config} from '../../constant';
+import { useAuth } from '@/state/auth/hooks'
 
 const ProfileSection = () => {
   const theme = useTheme();
-  // const customization = useSelector((state) => state.customization);
   // const navigate = useNavigate();
-
+  const {borderRadius} = config
+  const {actions, state} = app
   const [sdm, setSdm] = useState(true);
   const [value, setValue] = useState('');
   const [notification, setNotification] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(-1);
   const [open, setOpen] = useState(false);
+  const { logout } = useAuth()
   /**
    * anchorRef is used on different componets and specifying one type leads to other components throwing an error
    * */
   const anchorRef = useRef(null);
   const handleLogout = async () => {
-    console.log('Logout');
+    logout()
   };
 
   const handleClose = (event) => {
@@ -246,7 +249,7 @@ const ProfileSection = () => {
                         }}
                       >
                         <ListItemButton
-                          // sx={{ borderRadius: `${customization.borderRadius}px` }}
+                          sx={{ borderRadius: `${borderRadius}px` }}
                           selected={selectedIndex === 0}
                           onClick={(event) => handleListItemClick(event, 0, '#')}
                         >
@@ -256,7 +259,7 @@ const ProfileSection = () => {
                           <ListItemText primary={<Typography variant="body2">Account Settings</Typography>} />
                         </ListItemButton>
                         <ListItemButton
-                          // sx={{ borderRadius: `${customization.borderRadius}px` }}
+                          sx={{ borderRadius: `${borderRadius}px` }}
                           selected={selectedIndex === 1}
                           onClick={(event) => handleListItemClick(event, 1, '#')}
                         >
@@ -284,7 +287,7 @@ const ProfileSection = () => {
                           />
                         </ListItemButton>
                         <ListItemButton
-                          // sx={{ borderRadius: `${customization.borderRadius}px` }}
+                          sx={{ borderRadius: `${borderRadius}px` }}
                           selected={selectedIndex === 4}
                           onClick={handleLogout}
                         >

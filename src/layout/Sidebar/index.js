@@ -11,9 +11,10 @@ import { BrowserView, MobileView } from 'react-device-detect';
 // project imports
 import MenuList from './MenuList';
 import LogoSection from '../LogoSection';
-import MenuCard from './MenuCard';
+// import MenuCard from './MenuCard';
 import { drawerWidth } from '../constant';
-
+import { useEffect } from 'react';
+import Visibility from '@mui/icons-material/Visibility';
 // ==============================|| SIDEBAR DRAWER ||============================== //
 
 const Sidebar = ({ drawerOpen, drawerToggle, window }) => {
@@ -32,24 +33,24 @@ const Sidebar = ({ drawerOpen, drawerToggle, window }) => {
           component="div"
           style={{
             height: !matchUpMd ? 'calc(100vh - 56px)' : 'calc(100vh - 88px)',
-            paddingLeft: '16px',
-            paddingRight: '16px'
+            paddingLeft: drawerOpen? 16:0,
+            paddingRight:  drawerOpen? 16:0,
           }}
         >
           <MenuList />
-          <MenuCard />
-          <Stack direction="row" justifyContent="center" sx={{ mb: 2 }}>
+          {/* <MenuCard /> */}
+          {/* <Stack direction="row" justifyContent="center" sx={{ mb: 2 }}>
             <Chip label={process.env.REACT_APP_VERSION} disabled chipcolor="secondary" size="small" sx={{ cursor: 'pointer' }} />
-          </Stack>
+          </Stack> */}
         </PerfectScrollbar>
       </BrowserView>
       <MobileView>
         <Box sx={{ px: 2 }}>
           <MenuList />
-          <MenuCard />
+          {/* <MenuCard />
           <Stack direction="row" justifyContent="center" sx={{ mb: 2 }}>
             <Chip label={process.env.REACT_APP_VERSION} disabled chipcolor="secondary" size="small" sx={{ cursor: 'pointer' }} />
-          </Stack>
+          </Stack> */}
         </Box>
       </MobileView>
     </>
@@ -57,24 +58,61 @@ const Sidebar = ({ drawerOpen, drawerToggle, window }) => {
 
   const container = window !== undefined ? () => window.document.body : undefined;
 
+  const openedMixin = (theme) => ({
+    width: drawerWidth,
+    transition: theme.transitions.create('width', {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.enteringScreen,
+    }),
+    overflowX: 'hidden',
+    [theme.breakpoints.up('md')]: {
+      top: '88px'
+    }
+  });
+  
+  const closedMixin = (theme) => ({
+    transition: theme.transitions.create('width', {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen,
+    }),
+    overflowX: 'hidden',
+    visibility: 'hidden',
+    [theme.breakpoints.up('sm')]: {
+      width: 72,
+    },
+    borderRight: 'none',
+    [theme.breakpoints.up('md')]: {
+        top: '88px',
+        visibility: 'visible',
+      }
+  });
+
   return (
     <Box component="nav" sx={{ flexShrink: { md: 0 }, width: matchUpMd ? drawerWidth : 'auto' }} aria-label="mailbox folders">
       <Drawer
         container={container}
-        variant={matchUpMd ? 'persistent' : 'temporary'}
+        variant={matchUpMd ? 'permanent' : 'temporary'}
         anchor="left"
         open={drawerOpen}
         onClose={drawerToggle}
         sx={{
-          '& .MuiDrawer-paper': {
-            width: drawerWidth,
-            background: theme.palette.background.default,
-            color: theme.palette.text.primary,
-            borderRight: 'none',
-            [theme.breakpoints.up('md')]: {
-              top: '88px'
-            }
-          }
+          // '& .MuiDrawer-paper': {
+          //   width:  drawerWidth,
+          //   background: theme.palette.background.default,
+          //   color: theme.palette.text.primary,
+          //   borderRight: 'none',
+          //   [theme.breakpoints.up('md')]: {
+          //     top: '88px'
+          //   }
+          // }
+          ...(drawerOpen && {
+            ...openedMixin(theme),
+            '& .MuiDrawer-paper': openedMixin(theme),
+          }),
+          ...(!drawerOpen && {
+            ...closedMixin(theme),
+            '& .MuiDrawer-paper': closedMixin(theme),
+          }),
         }}
         ModalProps={{ keepMounted: true }}
         color="inherit"

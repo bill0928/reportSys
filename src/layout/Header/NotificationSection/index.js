@@ -1,6 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
 // import { Link } from 'react-router-dom';
-
 // material-ui
 import { useTheme } from '@mui/material/styles';
 import {
@@ -18,7 +17,8 @@ import {
   Stack,
   TextField,
   Typography,
-  useMediaQuery
+  useMediaQuery,
+  Link
 } from '@mui/material';
 
 // third-party
@@ -163,9 +163,9 @@ const NotificationSection = () => {
                           </Stack>
                         </Grid>
                         <Grid item>
-                          {/* <Typography component={Link} to="#" variant="subtitle2" color="primary">
+                          <Typography component={Link} to="#" variant="subtitle2" color="primary">
                             Mark as all read
-                          </Typography> */}
+                          </Typography>
                         </Grid>
                       </Grid>
                     </Grid>

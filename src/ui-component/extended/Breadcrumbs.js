@@ -1,15 +1,12 @@
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-
 // material-ui
 import { useTheme } from '@mui/material/styles';
-import { Box, Card, Divider, Grid, Typography } from '@mui/material';
-import MuiBreadcrumbs from '@mui/material/Breadcrumbs';
+import { Box, Card, Divider, Grid, Typography, Link } from '@mui/material';
+import MuiBreadcrumbs from '@mui/material/Breadcrumbs' ;
 
 // project imports
-import config from 'config';
-import { gridSpacing } from 'store/constant';
+import {config, gridSpacing} from '@/layout/constant';
 
 // assets
 import { IconTallymark1 } from '@tabler/icons-react';
@@ -82,7 +79,9 @@ const Breadcrumbs = ({ card, divider, icon, icons, maxItems, navigation, rightAl
   if (main && main.type === 'collapse') {
     CollapseIcon = main.icon ? main.icon : AccountTreeTwoToneIcon;
     mainContent = (
-      <Typography component={Link} to="#" variant="subtitle1" sx={linkSX}>
+      <Typography 
+      component={Link}
+       to="#" variant="subtitle1" sx={linkSX}>
         {icons && <CollapseIcon style={iconStyle} />}
         {main.title}
       </Typography>
@@ -144,7 +143,9 @@ const Breadcrumbs = ({ card, divider, icon, icons, maxItems, navigation, rightAl
                   maxItems={maxItems || 8}
                   separator={separatorIcon}
                 >
-                  <Typography component={Link} to="/" color="inherit" variant="subtitle1" sx={linkSX}>
+                  <Typography 
+                  component={Link} 
+                  to="/" color="inherit" variant="subtitle1" sx={linkSX}>
                     {icons && <HomeTwoToneIcon sx={iconStyle} />}
                     {icon && <HomeIcon sx={{ ...iconStyle, mr: 0 }} />}
                     {!icon && 'Dashboard'}
@@ -171,17 +172,17 @@ const Breadcrumbs = ({ card, divider, icon, icons, maxItems, navigation, rightAl
   return breadcrumbContent;
 };
 
-Breadcrumbs.propTypes = {
-  card: PropTypes.bool,
-  divider: PropTypes.bool,
-  icon: PropTypes.bool,
-  icons: PropTypes.bool,
-  maxItems: PropTypes.number,
-  navigation: PropTypes.object,
-  rightAlign: PropTypes.bool,
-  separator: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
-  title: PropTypes.bool,
-  titleBottom: PropTypes.bool
-};
+// Breadcrumbs.propTypes = {
+//   card: PropTypes.bool,
+//   divider: PropTypes.bool,
+//   icon: PropTypes.bool,
+//   icons: PropTypes.bool,
+//   maxItems: PropTypes.number,
+//   navigation: PropTypes.object,
+//   rightAlign: PropTypes.bool,
+//   separator: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
+//   title: PropTypes.bool,
+//   titleBottom: PropTypes.bool
+// };
 
 export default Breadcrumbs;

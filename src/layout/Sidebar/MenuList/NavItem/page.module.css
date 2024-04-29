@@ -1,0 +1,11 @@
+.item:hover, .item_fix{
+  background-color: transparent !important;
+  .item_icon{
+    background-color: #ede7f6;
+  }
+}
+.item{
+  .item_icon{
+    border-radius: 8px;
+  }
+}

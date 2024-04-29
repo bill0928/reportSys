@@ -30,6 +30,7 @@
     "react-device-detect": "^2.2.3",
     "react-dom": "^18",
     "react-perfect-scrollbar": "^1.5.8",
+    "react-tracked": "^1.7.14",
     "resize-observer-polyfill": "^1.5.1",
     "swr": "^2.2.5",
     "ts-is-present": "^1.2.2",
@@ -39,6 +40,8 @@
   },
   "devDependencies": {
     "@babel/node": "^7.23.9",
+    "@types/js-cookie": "^3.0.6",
+    "@types/lodash": "^4.17.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

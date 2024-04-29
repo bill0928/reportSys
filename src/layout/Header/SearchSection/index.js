@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { useState } from 'react';
 
 // material-ui
@@ -107,11 +107,11 @@ const MobileSearch = ({ value, setValue, popupState }) => {
   );
 };
 
-MobileSearch.propTypes = {
-  value: PropTypes.string,
-  setValue: PropTypes.func,
-  popupState: PopupState
-};
+// MobileSearch.propTypes = {
+//   value: PropTypes.string,
+//   setValue: PropTypes.func,
+//   popupState: PopupState
+// };
 
 // ==============================|| SEARCH INPUT ||============================== //
 
