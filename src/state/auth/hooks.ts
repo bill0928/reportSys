@@ -24,7 +24,7 @@ export const useAuth = () => {
       // });
       // return res;
     },
-    [setAuthState]
+    []
   );
   const loginGG = useCallback(
     async () => {
@@ -42,7 +42,7 @@ export const useAuth = () => {
   const logout = useCallback(() => {
     logoutHandel();
     setAuthState({ credential: undefined, tokenLoading: false });
-  }, [setAuthState]);
+  }, []);
 
   return {
     login: loginGG,
