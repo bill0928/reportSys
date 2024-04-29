@@ -1,4 +1,5 @@
 
+'use client'
 // material-ui
 import { styled, useTheme } from '@mui/material/styles';
 import { AppBar, Box, CssBaseline, Theme, Toolbar, useMediaQuery } from '@mui/material';

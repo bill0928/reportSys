@@ -142,7 +142,7 @@ const NavItem = ({ item, level }) => {
        minWidth: !item?.icon ? 18 : 36, 
        width:opened? undefined:46,
        height:opened? undefined:46,
-       justifyContent: 'center',
+       justifyContent: opened? 'start':'center',
         }}>{itemIcon}</ListItemIcon>
       {isShowTxt &&<ListItemText
         primary={

@@ -1,5 +1,5 @@
 // import PropTypes from 'prop-types';
-
+'use client'
 // material-ui
 import { useTheme } from '@mui/material/styles';
 import { Box, Chip, Drawer, Stack, useMediaQuery } from '@mui/material';
