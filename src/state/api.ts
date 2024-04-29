@@ -1,5 +1,5 @@
 import axios from "axios";
-import config from "@/config";
+// import config from "@/config";
 // import { CapacitorHttp } from '@capacitor/core'
 // import credentialCookie from './auth/cookie'
 // import { tokenIgnores } from './constant'
@@ -20,10 +20,11 @@ export const postFormData = async <Params>({
 };
 
 const createAxiosInstance = () => {
-  if (!config.api) throw new Error("API URL is not defined");
+  // if (!config.api) throw new Error("API URL is not defined");
   if (axioRequest === undefined) {
     const instance = axios.create({
-      baseURL: config.api,
+      // baseURL: config.api,
+      baseURL: 'https://report-api.t1games.app/',
       withCredentials: true,
       timeout: 5000,
       headers: {
