@@ -20,9 +20,7 @@ export type AuthInfo = {
   username: string;
 };
 
-export type UserInfo = {
- 
-} & Partial<AuthInfo>;
+export type UserInfo = Partial<AuthInfo>;
 
 export type TwoFA = {
   qr_content: string;
