@@ -36,7 +36,7 @@ export const useAuth = () => {
       });
       return res;
     },
-    [setAuthState]
+    []
   );
 
   const logout = useCallback(() => {
