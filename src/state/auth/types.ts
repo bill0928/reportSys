@@ -21,9 +21,7 @@ export type AuthInfo = {
 };
 
 export type UserInfo = {
-  agent_id: number;
-  allowed_ips: string[];
-  active: boolean;
+ 
 } & Partial<AuthInfo>;
 
 export type TwoFA = {

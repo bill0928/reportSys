@@ -14,7 +14,7 @@ import useSWRMutation from "swr/mutation";
 export const useAuth = () => {
   const [authState, setAuthState] = useAuthState();
 
-  const login = useCallback(
+  const login = 
     async (authData: Auth) => {
       const res = await loginHandel(authData);
       // if ("error" in res) return res;
@@ -23,10 +23,8 @@ export const useAuth = () => {
       //   tokenLoading: false,
       // });
       // return res;
-    },
-    []
-  );
-  const loginGG = useCallback(
+    }
+  const loginGG = 
     async () => {
       const res ={  id: 87, username: 'abc'}
       credentialCookie.set(res)
@@ -35,14 +33,12 @@ export const useAuth = () => {
         tokenLoading: false,
       });
       return res;
-    },
-    []
-  );
+    }
 
-  const logout = useCallback(() => {
+  const logout = () => {
     logoutHandel();
     setAuthState({ credential: undefined, tokenLoading: false });
-  }, []);
+  }
 
   return {
     login: loginGG,
